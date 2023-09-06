@@ -31,5 +31,5 @@ spec:
         zone: eu-west-2a
       volumes:
         - name:  vprodb-data
-          PersistentVolume:
-            claimName: vprodb-data-pv
+          PersistentVolumeClaim:
+            claimName: ebs-pvc
