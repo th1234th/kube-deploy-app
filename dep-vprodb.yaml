@@ -16,7 +16,7 @@ spec:
         zone: eu-west-2a
       volumes:
         - name:  vprodb-data
-          PersistentVolumeClaim:
+          persistentVolumeClaim:
             claimName: pv
       containers:
         - name: vprodb
