@@ -12,24 +12,24 @@ spec:
       labels:
         app: vprodb
     spec:
-      containers:
-      - name: vprodb
-        image: thdh/vprodb:v1.0
-        ports:
-        - name: vprodb-port
-          containerPort: 3306
-        env:
-          - name:  MYSQL_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name:  app-secret
-                key:  db-pws
-        volumeMounts:
-          - name:  vprodb-data
-            mountPath:  /var/lib/mysql
       nodeSelector:
         zone: eu-west-2a
       volumes:
         - name:  vprodb-data
           PersistentVolumeClaim:
             claimName: pv
+      containers:
+        - name: vprodb
+          image: thdh/vprodb:v1.0
+          ports:
+          - name: vprodb-port
+            containerPort: 3306
+          env:
+            - name:  MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name:  app-secret
+                  key:  db-pws
+          volumeMounts:
+            - name:  vprodb-data
+              mountPath:  /var/lib/mysql

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      volumes:
+        - name: my-persistent-storage
+          persistentVolumeClaim:
+            claimName: my-pvc  # Reference your PVC here
+      containers:
+        - name: my-container
+          image: nginx
+          volumeMounts:
+            - name: my-persistent-storage
+              mountPath: /data  # Specify the mount path in the container
