@@ -3,6 +3,10 @@ kind: PersistentVolume
 metadata:
   name: vprodb-data-pv
 spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   awsElasticBlockStore:
     volumeID: vol-04a6fa581e45fb261  
