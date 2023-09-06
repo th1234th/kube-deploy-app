@@ -33,3 +33,7 @@ spec:
           volumeMounts:
             - name:  vprodb-data
               mountPath:  /var/lib/mysql
+      initContainers:
+        - name: busybox
+          image: busybox:latest
+          args: ["rm", "-rf", "/var/lib/mysql/lost+found"]
