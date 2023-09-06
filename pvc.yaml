@@ -3,5 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: ebs-pvc
 spec:
+  resources:
+    requests:
+      storage: 3Gi
   accessModes:
     - ReadWriteOnce
