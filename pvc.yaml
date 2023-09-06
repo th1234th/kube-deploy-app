@@ -1,10 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ebs-pvc
+  labels:
+    app: vprodb
+  name: pv
 spec:
   resources:
     requests:
-      storage: 3Gi
+      storage: 1Gi
   accessModes:
     - ReadWriteOnce
