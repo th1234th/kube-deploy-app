@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  vprodb0
+  name:  vprodb
   namespace: default
   labels:
     app:  vprodb
@@ -21,7 +21,7 @@ spec:
             volumeID: vol-0843ef71d0b740a46
             fsType: ext4
       nodeSelector:
-        zone: eu-west-2
+        zone: eu-west-2a
       containers:
         - name:  vprodb
           image:  thdh/vprodb:v1.0
