@@ -28,7 +28,7 @@ spec:
           env:
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:
-              configMapKeyRef:
+              secretKeyRef:
                 name: app-secret
                 key: db-pws
           ports:
@@ -37,3 +37,7 @@ spec:
           volumeMounts:
           - name: dbvpro-volume
             mountPath: /var/lib/mysql
+#      initContainers:
+#        - name: busybox
+#          image: busybox:latest
+#          args: ["rm", "-rf", "/var/lib/mysql/lost+found"]
