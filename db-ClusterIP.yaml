@@ -1,12 +1,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name:  
+  name:  vprodb
 spec:
   selector:
-    app:  Selector Label
-  type:  ClusterIP 
+    app:  vprodb
   ports:
-  - name:  name-of-the-port
-    port:  80
-    targetPort:  8080
+  - name:  cip-port
+    port:  3306
+    targetPort:  vprodb-port
+    protocol: TCP
+  type: ClusterIP
